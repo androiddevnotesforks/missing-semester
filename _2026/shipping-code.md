@@ -429,9 +429,12 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc libpq-dev && \
     rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+ENV PATH="/app/.venv/bin:$PATH"
 COPY pyproject.toml uv.lock ./
-RUN uv pip install --system -r uv.lock
-COPY . /app
+RUN uv sync --locked --no-dev --no-install-project
+COPY . .
+RUN uv sync --locked --no-dev
 ```
 
 In the previous example we see that instead of installing `uv` from source, we are copying the prebuilt binary from the `ghcr.io/astral-sh/uv:latest` image. This is known as the _builder_ pattern. With this pattern we do not need to ship all the tools needed to compile our code, just the final binary that is needed to run the application (`uv` in this case).
