@@ -10,7 +10,7 @@ video:
 special: true
 ---
 
-Apart from the terminal, the web browser is a tool you will find yourself spending significant amounts of time into. Thus it is worth learning how to use it efficiently and
+Apart from the terminal, the web browser is a tool you will find yourself spending significant amounts of time into. Thus it is worth learning how to use it efficiently and productively.
 
 ## Shortcuts
 
@@ -149,10 +149,9 @@ function c() {
 
 ## Web Automation
 
-Sometimes web APIs are not enough. If only reading is needed you can use a html parser like `pup` or use a library, for example python has BeautifulSoup. However if interactivity or javascript execution is required those solutions fall short. WebDriver
+Sometimes web APIs are not enough. If only reading is needed you can use a html parser like `pup` or use a library, for example python has BeautifulSoup. However if interactivity or javascript execution is required those solutions fall short. 
 
-
-For example, the following script will save the specified url using the wayback machine simulating the interaction of typing the website.
+- **WebDriver**. For example, the following script will save the specified url using the wayback machine simulating the interaction of typing the website.
 
 ```python
 from selenium.webdriver import Firefox
