@@ -181,13 +181,13 @@ Consider this example where we have a Python file `greet.py` in our current dire
 ```console
 $ cat greet.py
 def greet(name):
-    return f"Hello, {name}!"
+    print(f"Hello, {name}!")
 
-$ python -c "from greet import greet; print(greet('World'))"
+$ python -c "from greet import greet; greet('World')"
 Hello, World!
 
 $ cd /tmp
-$ python -c "from greet import greet; print(greet('World'))"
+$ python -c "from greet import greet; greet('World')"
 ModuleNotFoundError: No module named 'greet'
 ```
 
@@ -224,11 +224,11 @@ And the corresponding `greeting.py`:
 import typer
 
 
-def greet(name: str) -> str:
-    return f"Hello, {name}!"
+def greet(name: str) -> None:
+    print(f"Hello, {name}!")
 
 
-def cli():
+def cli() -> None:
     typer.run(greet)
 
 
